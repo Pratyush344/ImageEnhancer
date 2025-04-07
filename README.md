@@ -24,7 +24,7 @@ ImageEnhancer is a lightweight application designed to improve image quality thr
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/ImageEnhancer.git
+   git clone https://github.com/Pratyush344/ImageEnhancer.git
    ```
 2. Navigate to the project directory:
    ```
@@ -41,7 +41,7 @@ ImageEnhancer is a lightweight application designed to improve image quality thr
 
 1. Launch the application:
    ```
-   npm start
+   npm run dev
    ```
 2. Click "Open" to select an image
 3. Choose enhancement options from the sidebar
