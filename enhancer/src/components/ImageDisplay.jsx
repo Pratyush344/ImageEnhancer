@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "./ImageDisplay.css";
 
-const ImageDisplay = ({ imageUrl }) => {
+const ImageDisplay = ({ imageUrl, darkMode }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState(false);
 
   if (!imageUrl) {
-    return <p>No image available</p>;
+    return <p className={darkMode ? "text-dark" : ""}>No image available</p>;
   }
 
   const handleImageLoad = () => {
@@ -19,23 +19,23 @@ const ImageDisplay = ({ imageUrl }) => {
   };
 
   return (
-    <div className="image-display">
+    <div className={`image-display ${darkMode ? "dark" : ""}`}>
       {!isLoaded && !error && (
-        <div className="loading-spinner">
-          <span>Loading image...</span>
+        <div className={`loading-spinner ${darkMode ? "dark" : ""}`}>
+          <span className={darkMode ? "text-dark" : ""}>Loading image...</span>
         </div>
       )}
 
       {error ? (
-        <div className="error-container">
+        <div className={`error-container ${darkMode ? "dark" : ""}`}>
           <p>Failed to load image. Please try again.</p>
-          <div className="debug-info">
+          <div className={`debug-info ${darkMode ? "dark" : ""}`}>
             <p>URL: {imageUrl}</p>
             <a
               href={imageUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="direct-link"
+              className={`direct-link ${darkMode ? "dark" : ""}`}
             >
               View Image Directly
             </a>
@@ -55,7 +55,7 @@ const ImageDisplay = ({ imageUrl }) => {
         <a
           href={imageUrl}
           download="enhanced-image.png"
-          className="download-button"
+          className={`download-button ${darkMode ? "dark" : ""}`}
           target="_blank"
           rel="noopener noreferrer"
         >

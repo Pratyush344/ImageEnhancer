@@ -3,7 +3,7 @@ import { enhancedImageApi } from "../utils/enhancedImageApi";
 import ImageDisplay from "../components/ImageDisplay";
 import "./Home.css";
 
-const Home = () => {
+const Home = ({ darkMode }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [originalPreview, setOriginalPreview] = useState(null);
   const [enhancedImage, setEnhancedImage] = useState(null);
@@ -17,7 +17,7 @@ const Home = () => {
       setEnhancedImage(null);
       setError("");
 
-      // Create preview for original image
+      // Create preview for original image input by the user
       const reader = new FileReader();
       reader.onload = (e) => {
         setOriginalPreview(e.target.result);
@@ -53,9 +53,7 @@ const Home = () => {
   };
 
   return (
-    <div className="home-container">
-      <h1>Image Enhancer</h1>
-
+    <div className={`home-container ${darkMode ? 'dark' : ''}`}>
       <div className="upload-container">
         <input
           type="file"
@@ -64,12 +62,12 @@ const Home = () => {
           onChange={handleFileChange}
           className="file-input"
         />
-        <label htmlFor="file-input" className="file-label">
+        <label htmlFor="file-input" className={`file-label ${darkMode ? 'dark' : ''}`}>
           {selectedFile ? selectedFile.name : "Choose Image"}
         </label>
 
         <button
-          className="enhance-button"
+          className={`enhance-button ${darkMode ? 'dark' : ''}`}
           onClick={handleEnhanceClick}
           disabled={!selectedFile || loading}
         >
@@ -77,12 +75,12 @@ const Home = () => {
         </button>
       </div>
 
-      {error && <div className="error-message">{error}</div>}
+      {error && <div className={`error-message ${darkMode ? 'dark' : ''}`}>{error}</div>}
 
       <div className="images-container">
         {originalPreview && (
-          <div className="image-card">
-            <h3>Original Image</h3>
+          <div className={`image-card ${darkMode ? 'dark' : ''}`}>
+            <h3 className={darkMode ? 'dark' : ''}>Original Image</h3>
             <div className="image-wrapper">
               <img
                 src={originalPreview}
@@ -94,19 +92,19 @@ const Home = () => {
         )}
 
         {loading && (
-          <div className="image-card">
-            <h3>Processing...</h3>
+          <div className={`image-card ${darkMode ? 'dark' : ''}`}>
+            <h3 className={darkMode ? 'dark' : ''}>Processing...</h3>
             <div className="processing-indicator">
-              <div className="spinner"></div>
-              <p>Enhancing your image...</p>
+              <div className={`spinner ${darkMode ? 'dark' : ''}`}></div>
+              <p className={darkMode ? 'dark' : ''}>Enhancing your image...</p>
             </div>
           </div>
         )}
 
         {!loading && enhancedImage && (
-          <div className="image-card">
-            <h3>Enhanced Image</h3>
-            <ImageDisplay imageUrl={enhancedImage.imageUrl} />
+          <div className={`image-card ${darkMode ? 'dark' : ''}`}>
+            <h3 className={darkMode ? 'dark' : ''}>Enhanced Image</h3>
+            <ImageDisplay imageUrl={enhancedImage.imageUrl} darkMode={darkMode} />
           </div>
         )}
       </div>
