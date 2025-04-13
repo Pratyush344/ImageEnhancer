@@ -13,7 +13,12 @@
   overflow: hidden;
   width: 100%;
   max-width: 450px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.image-card.dark {
+  background-color: #2d2d2d;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .image-card:hover {
@@ -26,6 +31,11 @@
   margin: 0;
   padding: 15px;
   text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.image-card h3.dark {
+  background-color: #2a5885;
 }
 
 .image-wrapper {
@@ -65,6 +75,14 @@
   background-color: #45a049;
 }
 
+.download-button.dark {
+  background-color: #2d8a33;
+}
+
+.download-button.dark:hover {
+  background-color: #25762a;
+}
+
 .loading-card {
   text-align: center;
   padding-bottom: 20px;
@@ -79,6 +97,10 @@
   color: #666;
 }
 
+.loading-spinner.dark {
+  color: #aaa;
+}
+
 .loading-spinner:before {
   content: "";
   width: 30px;
@@ -90,14 +112,27 @@
   animation: spin 1s linear infinite;
 }
 
+.loading-spinner.dark:before {
+  border: 3px solid #333;
+  border-top: 3px solid #2a5885;
+}
+
 .error-card h3 {
   background-color: #e74c3c;
+}
+
+.error-card h3.dark {
+  background-color: #c0392b;
 }
 
 .error-message {
   color: #e74c3c;
   padding: 15px;
   text-align: center;
+}
+
+.error-message.dark {
+  color: #ff6b6b;
 }
 
 @keyframes spin {
@@ -114,6 +149,11 @@
   flex-direction: column;
   align-items: center;
   padding: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.image-display.dark {
+  background-color: #1e1e1e;
 }
 
 .enhanced-image {
@@ -136,6 +176,12 @@
   border-radius: 8px;
   text-align: center;
   width: 100%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.error-container.dark {
+  background-color: #4a1c1c;
+  color: #ff8a80;
 }
 
 .debug-info {
@@ -147,6 +193,13 @@
   font-size: 12px;
   text-align: left;
   word-break: break-all;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.debug-info.dark {
+  background-color: #333;
+  border: 1px dashed #555;
+  color: #ddd;
 }
 
 .direct-link {
@@ -158,4 +211,21 @@
   border-radius: 4px;
   text-decoration: none;
   font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.direct-link.dark {
+  background-color: #0d47a1;
+}
+
+.direct-link:hover {
+  background-color: #1976d2;
+}
+
+.direct-link.dark:hover {
+  background-color: #1565c0;
+}
+
+.text-dark {
+  color: #f0f0f0;
 }
